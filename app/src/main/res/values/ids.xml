@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="et"/>
+    <item type="id" name="bt"/>
+    <item type="id" name="rv"/>
+    <item type="id" name="imageItem"/>
+    <item type="id" name="textItem"/>
+
+    <item type="id" name="imageDetail"/>
+    <item type="id" name="titleDetail"/>
+    <item type="id" name="descDetail"/>
+</resources>
