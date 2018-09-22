@@ -28,10 +28,6 @@ class RecyclerViewAdapter(private val context: Context, private val items: List<
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItem(items[position], listener)
 
-        holder.itemView.setOnClickListener {
-
-        }
-
     }
 
     override fun getItemCount(): Int = items.size
