@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView
 import android.widget.Toast
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
+import org.jetbrains.anko.sdk25.coroutines.onClick
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,8 +29,9 @@ class MainActivity : AppCompatActivity() {
 
         val rv = findViewById<RecyclerView>(R.id.rv)
         rv.adapter = RecyclerViewAdapter(this, items) {
-            val toast = Toast.makeText(applicationContext, it.name, Toast.LENGTH_SHORT)
-            toast.show()
+            startActivity<DetailActivity>(
+                    "judul" to it.name,
+                    "image" to it.image.toString())
         }
         image.recycle()
     }
@@ -41,6 +43,7 @@ class MainActivity : AppCompatActivity() {
                         id = R.id.rv
                         lparams(width = matchParent, height = wrapContent)
                         layoutManager = LinearLayoutManager(ctx)
+
                     }
                 }
             }

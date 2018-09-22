@@ -29,10 +29,6 @@ class RecyclerViewAdapter(private val context: Context, private val items: List<
         holder.bindItem(items[position], listener)
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(context,DetailActivity::class.java)
-            intent.putExtra("image",items[position].image)
-            intent.putExtra("judul",items[position].name)
-            context.startActivity(intent)
 
         }
 
@@ -42,8 +38,8 @@ class RecyclerViewAdapter(private val context: Context, private val items: List<
 
     class ViewHolder(override val containerView: View?) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
-        private val name = containerView?.findViewById<TextView>(R.id.textItem)
-        private val image = containerView?.findViewById<ImageView>(R.id.imageItem)
+        private val name = itemView.findViewById<TextView>(R.id.textItem)
+        private val image = itemView.findViewById<ImageView>(R.id.imageItem)
 
         fun bindItem(items: Item, listener: (Item) -> Unit) {
             if(name != null)
@@ -53,7 +49,6 @@ class RecyclerViewAdapter(private val context: Context, private val items: List<
             Glide.with(itemView.context).load(items.image).into(image)
             itemView.setOnClickListener {
                 listener(items)
-
             }
         }
 

@@ -12,9 +12,6 @@ class ItemUi : AnkoComponent<Context> {
     override fun createView(ui: AnkoContext<Context>): View = with(ui){
         relativeLayout {
             padding = 20
-            onClick {
-                startActivity<DetailActivity>()
-            }
 
             imageView {
                 id = R.id.imageItem
