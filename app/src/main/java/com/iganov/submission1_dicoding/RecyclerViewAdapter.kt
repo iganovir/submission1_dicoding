@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.activity_main.view.*
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.*
 
@@ -34,15 +35,12 @@ class RecyclerViewAdapter(private val context: Context, private val items: List<
 
     class ViewHolder(override val containerView: View?) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
-        private val name = itemView.findViewById<TextView>(R.id.textItem)
-        private val image = itemView.findViewById<ImageView>(R.id.imageItem)
-
         fun bindItem(items: Item, listener: (Item) -> Unit) {
-            if(name != null)
+            if(itemView.textItem != null)
             {
-                name.text = items.name
+                itemView.textItem.text = items.name
             }
-            Glide.with(itemView.context).load(items.image).into(image)
+            Glide.with(itemView.context).load(items.image).into(itemView.imageItem)
             itemView.setOnClickListener {
                 listener(items)
             }
